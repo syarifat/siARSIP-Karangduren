@@ -1,0 +1,12 @@
+tabel surat
+id_surat
+nomor_surat
+id_kategori(fk ke tabel kategori)
+judul_surat
+file_path
+
+
+tabel kategori
+id_kategori
+nama_kategori
+keterangan_kategori

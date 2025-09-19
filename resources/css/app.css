@@ -1,0 +1,219 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #eaf2fb;
+    color: #222;
+    margin: 0;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #1a237e;
+}
+
+/* Sidebar */
+
+/* Sidebar Modern */
+.sidebar {
+    background: linear-gradient(135deg, #dbeafe 70%, #b6c2e1 100%);
+    border-right: 2px solid #b6c2e1;
+    min-width: 220px;
+    padding: 32px 0 0 0;
+    height: 100vh;
+    box-shadow: 2px 0 16px #b6c2e133;
+}
+.sidebar-title {
+    margin-left: 32px;
+    color: #1a237e;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 24px;
+}
+.sidebar-menu li {
+    margin-bottom: 18px;
+    font-size: 1.08rem;
+}
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 24px;
+    border-radius: 8px;
+    color: #1a237e;
+    text-decoration: none;
+    font-weight: 500;
+    background: none;
+    box-shadow: 0 2px 8px #b6c2e122;
+    transition: background 0.18s, transform 0.18s, color 0.18s;
+    position: relative;
+}
+.sidebar-link .sidebar-icon {
+    font-size: 1.2em;
+    margin-right: 2px;
+    transition: transform 0.2s;
+}
+.sidebar-link.active, .sidebar-link:hover {
+    background: #b6c2e1;
+    color: #0d1b4d;
+    transform: translateX(4px) scale(1.04);
+    box-shadow: 0 4px 16px #b6c2e144;
+}
+.sidebar-link:hover .sidebar-icon {
+    transform: scale(1.2) rotate(-8deg);
+}
+
+/* Table */
+table {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px #0001;
+    border-collapse: collapse;
+    margin-bottom: 18px;
+    overflow: hidden;
+}
+th, td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e3e3e3;
+    text-align: left;
+}
+th {
+    background: #e3eefe;
+    font-weight: 600;
+    color: #1a237e;
+}
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Form & Button */
+form input, form textarea {
+    padding: 8px 12px;
+    border: 1px solid #b6c2e1;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #f6faff;
+    margin-bottom: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+form button, button, .btn-hapus, .btn-primary {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-right: 6px;
+    transition: background 0.2s;
+}
+form button:hover, button:hover, .btn-hapus:hover, .btn-primary:hover {
+    background: #1565c0;
+}
+.btn-hapus {
+    background: #f33;
+}
+.btn-hapus:hover {
+    background: #c62828;
+}
+.btn-warning {
+    background: #ffc107;
+    color: #222;
+}
+.btn-warning:hover {
+    background: #ffb300;
+}
+
+/* Modal */
+#modal-confirm {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.2);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+#modal-confirm.active {
+    display: flex;
+}
+#modal-confirm > div {
+    background: #fff;
+    padding: 32px 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px #0002;
+    max-width: 350px;
+    margin: auto;
+    text-align: center;
+}
+#modal-confirm h3 {
+    margin-bottom: 16px;
+    color: #1a237e;
+}
+#modal-confirm button {
+    padding: 8px 24px;
+    border-radius: 6px;
+    border: none;
+    margin: 0 8px;
+    font-size: 1rem;
+}
+#modal-cancel {
+    background: #eee;
+    color: #222;
+}
+#modal-cancel:hover {
+    background: #ccc;
+}
+#modal-yes {
+    background: #1976d2;
+    color: #fff;
+}
+#modal-yes:hover {
+    background: #1565c0;
+}
+
+/* About Profile */
+.about-profile {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    margin-top: 16px;
+}
+.about-profile img {
+    width: 120px;
+    height: 120px;
+    background: #fff;
+    border-radius: 16px;
+    border: 6px solid #000;
+    object-fit: cover;
+}
+.about-profile-details {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .sidebar { min-width: 60px; padding: 12px 0; }
+    .about-profile { flex-direction: column; gap: 16px; }
+    table, th, td { font-size: 0.95rem; }
+}
