@@ -54,9 +54,6 @@ Atau, Anda juga bisa langsung mengimport struktur dan data database menggunakan 
 
 [Download siarsip_karangduren.sql](siarsip_karangduren.sql)
 
-> **Catatan:**
-> Anda bebas memilih menggunakan migrasi Laravel (`php artisan migrate`) atau import file SQL di atas sesuai kebutuhan. Jika menggunakan SQL, pastikan database sudah dibuat dan file diimport melalui phpMyAdmin atau command line.
-
 Buat link storage:
 ```bash
 php artisan storage:link
