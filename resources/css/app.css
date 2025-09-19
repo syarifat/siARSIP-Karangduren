@@ -34,6 +34,16 @@ h2 {
     padding: 32px 0 0 0;
     height: 100vh;
     box-shadow: 2px 0 16px #b6c2e133;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.content {
+    flex: 1;
+    padding: 40px 48px;
+    margin-left: 220px;
 }
 .sidebar-title {
     margin-left: 32px;

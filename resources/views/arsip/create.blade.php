@@ -1,7 +1,16 @@
 @extends('layout.sidebar')
 @section('content')
-<h2>Arsip Surat &gt;&gt; Lihat</h2>
+<h2>Arsip Surat &gt;&gt; Unggah</h2>
 <div style="background:#fff;border-radius:16px;box-shadow:0 2px 12px #0001;max-width:650px;width:100%;padding:32px 36px 28px 36px;margin-bottom:24px;">
+    @if ($errors->any())
+        <div style="background:#ffe3e3;color:#b71c1c;padding:12px 18px;border-radius:8px;margin-bottom:18px;font-size:1rem;">
+            <ul style="margin:0;padding-left:18px;">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 <form action="{{ route('arsip.store') }}" method="POST" enctype="multipart/form-data" style="display:flex;flex-direction:column;gap:18px;">
     @csrf
     <div style="display:flex;flex-direction:column;gap:6px;">

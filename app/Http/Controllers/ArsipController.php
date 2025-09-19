@@ -35,8 +35,10 @@ class ArsipController extends Controller
             'nomor_surat' => 'required|string|max:255',
             'id_kategori' => 'required|exists:kategori,id_kategori',
             'judul_surat' => 'required|string|max:255',
-            // batasi ukuran (contoh 5MB => 5120 KB)
-            'file_path'  => 'required|file|mimes:pdf,doc,docx,jpg,jpeg,png|max:5120',
+            // hanya file PDF, maksimal 5MB
+            'file_path'  => 'required|file|mimes:pdf|max:5120',
+        ], [
+            'file_path.mimes' => 'File yang diupload harus berformat PDF.',
         ]);
 
         if (! $request->hasFile('file_path')) {
@@ -117,7 +119,10 @@ class ArsipController extends Controller
                     'nomor_surat' => 'required|string|max:255',
                     'id_kategori' => 'required|exists:kategori,id_kategori',
                     'judul_surat' => 'required|string|max:255',
-                    'file_path' => 'nullable|file|mimes:pdf,doc,docx,jpg,jpeg,png',
+                    // hanya file PDF
+                    'file_path' => 'nullable|file|mimes:pdf',
+                ], [
+                    'file_path.mimes' => 'File yang diupload harus berformat PDF.',
                 ]);
 
                 $surat = Surat::findOrFail($id);
